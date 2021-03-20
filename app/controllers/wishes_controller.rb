@@ -2,17 +2,17 @@ class WishesController < ApplicationController
     before_action :set_wish, only: [:show, :update, :delete]
   
     def index
-      render json: {wishes: ActiveModelSerializers::SerializableResource.new(Wish.all, each_serializer: WishSerializer) }
+        render json: wish, serializer: WishSerializer
     end
 
     def create
-      wish = logged_in_user.wish.create(wish_params)
+        wish = logged_in_user.wish.create(wish_params)
       if wish.save 
-      render json: wish
+        render json: wish
     end
 
     def show
-      render json: @wish, serializer: WishShowSerializer
+        render json: @wish, serializer: WishSerializer
     end
 
     def edit
@@ -20,15 +20,15 @@ class WishesController < ApplicationController
 
     def update
       if @wish.update(wish_params)
-        render json: @wish, status: :created, location: @wish
+          render json: @wish, status: :created, location: @wish
       else 
-        render json: @wish.errors, status: :unprocessable_entry
+          render json: @wish.errors, status: :unprocessable_entry
       end
     end
 
     def destroy
-      @wish.delete
-      render json: {WishId: @wish.id}
+        @wish.delete
+        render json: {WishId: @wish.id}
     end
   
     private

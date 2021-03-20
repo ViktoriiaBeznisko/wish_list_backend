@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   post '/login', to: "sessions#login"
-  # post 'auth', to: "sessions#login"
-  post 'autologin', to: "sessions#autologin"
+  # post '/auth', to: "sessions#login"
+  post '/autologin', to: "sessions#autologin"
 
 end

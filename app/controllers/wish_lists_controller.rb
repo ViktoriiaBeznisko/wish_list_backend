@@ -2,10 +2,9 @@ class WishListsController < ApplicationController
     before_action :set_wish_list, only: [:show, :update, :delete]
 
     def index
-        @wish_list = WishList.where(user_id: logged_in_user.id)
-        render json: {wish_lists: ActiveModelSerializers::SerializableResource.new(@wish_list, each_serializer: WishListSerializer) }
-        # render json: {wish_lists: ActiveModelSerializers::SerializableResource.new(@WishList.all, each_serializer: WishListSerializer) }
-
+        # @wish_lists = WishList.where(user_id: logged_in_user.id)
+        wish_lists = WishList.all
+        render json: wish_lists, serializer: WishListSerializer
     end
     
     def create
@@ -14,7 +13,7 @@ class WishListsController < ApplicationController
     end
 
     def show
-       render json: @wish_list, serializer: WishListShowSerializer
+       render json: @wish_list, serializer: WishListSerializer
     end
 
     def edit

@@ -5,5 +5,5 @@ class WishListSerializer < ActiveModel::Serializer
   def username
     object.user.username
   end
-
+  
 end
