@@ -2,7 +2,8 @@ class WishesController < ApplicationController
     before_action :set_wish, only: [:show, :update, :delete]
   
     def index
-        render json: wish, serializer: WishSerializer
+        wish = Wish.all
+        render json: wish, each_serializer: WishSerializer
     end
 
     def create
