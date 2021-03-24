@@ -28,15 +28,18 @@ class WishListsController < ApplicationController
     end
 
     def destroy
-      @wish_list.delete
-      @wish_list.wishes.delete_all
-      render json: {WishId: @wish_list.id}
+      wish_list = WishList.find(params[:id])
+      wish_list.delete
+      wish_list.wishes.delete_all
+      render json: wish_list
+      # render json: {WishId: @wish_list.id}
     end
     
     private
     
     def set_wish_list
-        @wish_list = WishList.find_by_id(params[:id])
+        # @wish_list = WishList.find_by_id(params[:id])
+        @wish_list = WishList.find(params[:id])
     end 
 
     def wish_list_params
