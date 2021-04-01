@@ -5,7 +5,7 @@ ruby '2.6.1'
 
 gem 'dotenv-rails'
 gem 'http'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'active_model_serializers', '~> 0.10.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
@@ -20,7 +20,7 @@ gem 'puma', '~> 4.1'
 gem 'bcrypt', '~> 3.1.7'
 # Use Json Web Token (JWT) for token based authentication
 # gem 'jwt'
-gem 'jwt', '~> 2.2', '>= 2.2.2'
+gem 'jwt', '~> 2.1'
 
 gem 'pry'
 

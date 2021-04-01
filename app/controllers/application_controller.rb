@@ -13,9 +13,16 @@ class ApplicationController < ActionController::API
     end
   
     def logged_in_user
+      # binding.pry
       User.find_by_id(decode_token[0]["user_id"])
     end
-  
+
+    # def current_users
+    #   User.find_by(id:session[:user_id])
+    # end
+
+    helper_method :logged_in_user
+ 
   end
    
   
