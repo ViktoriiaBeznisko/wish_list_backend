@@ -2,7 +2,8 @@ class WishListsController < ApplicationController
     before_action :set_wish_list, only: [:show, :update, :delete]
 
     def index
-        wish_lists = WishList.where(user_id: logged_in_user.id)
+        # wish_lists = WishList.where(user_id: logged_in_user.id)
+        wish_lists = WishList.all
         render json: wish_lists, each_serializer: WishListSerializer
     end
     
@@ -12,6 +13,7 @@ class WishListsController < ApplicationController
     end
 
     def show
+      # binding.pry
        render json: @wish_list, serializer: WishListSerializer
     end
 

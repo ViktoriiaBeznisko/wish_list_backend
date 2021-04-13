@@ -7,9 +7,9 @@ class WishesController < ApplicationController
     end
 
     def create
-      binding.pry
-        wish = wish.create(wish_params)
         binding.pry
+        wish = Wish.create(wish_params)
+        #binding.pry
         render json: wish
     end
 
