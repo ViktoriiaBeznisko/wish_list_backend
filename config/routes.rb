@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   # Routing Nested Resources
   resources :wish_lists do 
-    resources :wish, only: [:new, :create, :index, :show]
+    resources :wishes, only: [:new, :create, :index, :show]
   end 
-  resources :wishes, only: [:show, :index, :update]
+  resources :wishes, only: [:show, :index, :update, :destroy]
 
 
   resources :users
