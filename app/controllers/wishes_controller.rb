@@ -7,6 +7,7 @@ class WishesController < ApplicationController
     end
 
     def create
+      # binding.pry
         wish = Wish.create(wish_params)
         render json: wish
     end
@@ -30,7 +31,7 @@ class WishesController < ApplicationController
       # binding.pry
         wish = Wish.find(params[:id])
         wish.delete
-        render json: wishes
+        render json: wish
     end
   
     private
@@ -40,8 +41,8 @@ class WishesController < ApplicationController
     end
 
     def wish_params
-      # params.permit(:wish_list_id, :text, :link)
-      params.require(:wish).permit(:wish_list_id, :text, :link)
+      params.permit(:wish_list_id, :text, :link)
+      # params.require(:wish).permit(:wish_list_id, :text, :link)
     end
   
   end
